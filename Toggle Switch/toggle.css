@@ -1,0 +1,62 @@
+li {
+    width: 100px;
+    /* flexbox */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+label  {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+
+label span {
+    position: absolute;
+}
+
+/* remove the default styling of the checkbox isong the appearance property and create the other toggle area */
+
+input[type="checkbox"] {
+    appearance: none;
+    border: 2px solid black;
+    border-radius: 12px;
+    width: 44px;
+    height: 24px;
+    background-color: #eee;
+    transform: all 0.4s;
+    cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    background-color: black;
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    position: absolute;
+    top: 7px;
+    left: 16%;
+    transition: all 0.4s;
+}
+
+
+input[type="checkbox"]:checked {
+    background-color: rgb(106, 224, 50);
+    transition: all 0.4s;
+}
+
+input[type="checkbox"]:checked::before {
+    left:35%;
+}
+
+input[type="checkbox"]~label .on, 
+input[type="checkbox"]:checked~label .off {
+    opacity: 0;
+}
+
+input[type="checkbox"]:checked~label .on {
+    opacity: 1;
+}
